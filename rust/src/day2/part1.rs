@@ -1,18 +1,14 @@
-use std::fs::File;
-use std::io::{BufReader, Lines};
-
 #[derive(Debug)]
 struct Gift {
     slack: i32,
     surface_area: i32,
 }
 
-pub fn part1(lines: Lines<BufReader<File>>) {
+pub fn part1(lines: &Vec<String>) {
     let mut gifts: Vec<Gift> = Vec::new();
 
     for line in lines {
-        let raw_gift = line.unwrap();
-        let parts = raw_gift
+        let parts = line
             .split("x")
             .map(|z| z
                 .parse()
@@ -36,5 +32,5 @@ pub fn part1(lines: Lines<BufReader<File>>) {
     //println!("{:#?}", gifts);
 
     let total: i32 = gifts.iter().map(|x| x.surface_area + x.slack).sum();
-    println!("Answer: {}", total);
+    println!("Answer part 1: {}", total);
 }

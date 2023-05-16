@@ -22,7 +22,7 @@ fn main() {
 }
 
 fn day2() {
-    let lines = read_lines("day2.txt");
-    //part1(lines);
-    part2(lines);
+    let lines: Vec<String> = read_lines("day2.txt").map(|x| x.unwrap()).collect();
+    part1(&lines);
+    part2(&lines);
 }
